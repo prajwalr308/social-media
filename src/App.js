@@ -1,12 +1,16 @@
 
 import './App.css';
+import { UserContextProvider } from './contexts/user';
 import Home from './pages/home';
 
 function App() {
   return (
-    <div className="App">
+    <UserContextProvider>
+       <div className="App">
      <Home />
     </div>
+    </UserContextProvider>
+   
   );
 }
 
