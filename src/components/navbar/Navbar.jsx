@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar() {
   const classes = useStyles();
 
-  const [user,setUser] = useContext(UserContext);
+  const [user,setUser] = useContext(UserContext).user;
   console.log("usex",user)
   
   return (

@@ -5,7 +5,7 @@ import './style.scss'
 import { signInWithGoogle } from '../../services/auth'
 const SigninBtnView= ({}) => {
 
-  const [user,setUser] = useContext(UserContext);
+  const [user,setUser] = useContext(UserContext).user;
   const signInBtnClick=async()=>{
     let userAfterSignIn= await signInWithGoogle();
   
