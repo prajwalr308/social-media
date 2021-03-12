@@ -9,17 +9,14 @@ const CreatePost = () => {
     function textChangeHandler(e){
         setCaption(e.target.value);
     }
-    function uploadFileHandler(e){
-        console.log(e.target);
-    }
+  
  
     return (
         <div>
             <CreatePostView 
-            caption={caption}
-            setCaption={setCaption}
+          
             textChangeHandler={textChangeHandler} 
-            uploadFileHandler={uploadFileHandler}
+         
             
 
             />
