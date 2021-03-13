@@ -7,7 +7,7 @@ export const signInWithGoogle =async()=>{
         user=res.user;
     }).catch((error)=>{
         console.log(error.message);
-    });;
+    });
     return user
 }
 export const logout =async()=>{
