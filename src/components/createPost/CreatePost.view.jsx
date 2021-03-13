@@ -71,6 +71,9 @@ const CreateAPost = (props) => {
                 userPhoto:user.photoURL
               });
             });
+            setCaption("");
+            setProgress(0);
+            setImage(null);
         }
       );
     }
