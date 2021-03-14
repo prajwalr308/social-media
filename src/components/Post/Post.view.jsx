@@ -1,5 +1,5 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { createRef, useContext, useEffect,useRef,useState } from "react";
+import { makeStyles, StylesProvider } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -18,6 +18,11 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Comment from "../comment/Comment";
+import { db, storage } from "../../firebase";
+import { UserContext } from "../../contexts/user";
+import CommentInput from "../commentInput/CommentInput";
+import styles from './post.module.css'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,10 +60,39 @@ export default function Post(props) {
     comments,
   } = props;
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  
+  const [commentbool, setCommentbool] = useState(false)
+  const [user, setUser] = useContext(UserContext).user;
+  let currentUser;
+  if (user) {
+    currentUser = user.email.replace("@gmail.com", "");
+  }
+  useEffect(() => {
+    console.log(comments)
+  }, [])
+
+  const deletePost = () => {
+    if (username == currentUser) {
+      var imgRef = storage.refFromURL(photoUrl);
+      imgRef
+        .delete()
+        .then(() => {
+          console.log(" image deleted");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      db.collection("posts")
+        .doc(id)
+        .delete()
+        .then(() => {
+          console.log("post deleted");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -70,7 +104,7 @@ export default function Post(props) {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
+          <IconButton aria-label="settings" onClick={deletePost}>
             <DeleteIcon />
           </IconButton>
         }
@@ -87,26 +121,29 @@ export default function Post(props) {
           <FavoriteIcon />
         </IconButton>
 
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
+        <IconButton onClick={()=>{
+          setCommentbool(!commentbool);
+
+        }} >
           <ChatBubbleIcon />
         </IconButton>
-        <div>
-          {comments ? (
+        
+        <br></br>
+      
+      </CardActions>
+      <div>
+          {comments.length!=0 ? (
             comments.map((comment) => {
-              <Comment username={comment.username} comment={comment.comment} />;
+              return(<Comment username={comment.username} comment={comment.comment} />)
+              
             })
           ) : (
             <></>
           )}
         </div>
-      </CardActions>
+        <div className={styles.empty}></div>
+      <CommentInput commentbool={commentbool} id={id} comments={comments}  />
+      <div className={styles.empty}></div>
     </Card>
   );
 }

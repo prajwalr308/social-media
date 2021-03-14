@@ -27,6 +27,7 @@ const Feed = () => {
             photoUrl={post.photoUrl}
             userPhoto={post.userPhoto}
             caption={post.caption}
+            comments={post.comments}
           />
         );
       })}

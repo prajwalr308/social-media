@@ -1,0 +1,35 @@
+.commentInput__displayNone{
+display:none;
+}
+.commentInput{
+    display: flex;
+    margin-left: 20px;
+}
+.commentInput__textarea{
+    border:none;
+    width:90%;
+    resize:none;
+    border: solid;
+    border-width: 1px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+   
+
+
+}
+.commentInput__textarea:focus{
+   outline: none;
+
+}
+
+.commentInput__btn{
+   font-size: 1em;
+    margin-left: 8px;
+    border-color: none;
+    border:none;
+    cursor: pointer;
+}
+.commentInput__btn:focus{
+    outline: none;
+}
