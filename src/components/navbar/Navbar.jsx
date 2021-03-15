@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,6 +9,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SigninBtn from '../signin-btn';
 import { UserContext } from '../../contexts/user';
 import styles from './navbar.module.css'
+import firebase from 'firebase'
+import SignoutBtn from '../signout-btn/SignoutBtn';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,8 +28,19 @@ export default function Navbar() {
   const classes = useStyles();
 
   const [user,setUser] = useContext(UserContext).user;
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user=>{
+      if (user) {
+          // store the user on local storage
+          setUser(user)
+          
+      } 
+  })
+  }, [])
+
   console.log("usex",user)
-  
+  const userLocal = JSON.parse(localStorage.getItem('user'));
+  console.log(userLocal)
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -40,7 +53,7 @@ export default function Navbar() {
           <Typography variant="h6" className={classes.title} >
            
           </Typography>
-          {user ? (<img className={styles.profileImg} src={user.photoURL} />): (<SigninBtn />)}
+          {user ? (<div style={{display:"flex"}}><img className={styles.profileImg} src={user.photoURL} /><SignoutBtn /> </div>): (<SigninBtn />)}
         </Toolbar>
       </AppBar>
     </div>

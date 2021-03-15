@@ -3,9 +3,13 @@ import React, { useContext, useState } from 'react'
 import { UserContext } from '../../contexts/user'
 import './style.scss'
 import { signInWithGoogle } from '../../services/auth'
+
+import firebase from 'firebase'
+
 const SigninBtnView= ({}) => {
 
   const [user,setUser] = useContext(UserContext).user;
+ 
   const signInBtnClick=async()=>{
     let userAfterSignIn= await signInWithGoogle();
   
@@ -16,6 +20,10 @@ const SigninBtnView= ({}) => {
     
      
     }  
+ 
+     
+ 
+ 
   }
     return (
         <div className="google-btn" onClick={signInBtnClick}>
