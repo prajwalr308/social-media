@@ -28,6 +28,7 @@ const Feed = () => {
             userPhoto={post.userPhoto}
             caption={post.caption}
             comments={post.comments}
+            likeCount={post.likeCount}
           />
         );
       })}

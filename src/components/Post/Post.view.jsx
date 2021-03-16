@@ -58,12 +58,15 @@ export default function Post(props) {
     photoUrl,
     caption,
     comments,
+    likeCount,
+    likes
   } = props;
   const classes = useStyles();
 
   
   const [commentbool, setCommentbool] = useState(false)
   const [user, setUser] = useContext(UserContext).user;
+  const [likedBy, setLikedBy] = useState([])
   let currentUser;
   if (user) {
     currentUser = user.email.replace("@gmail.com", "");
@@ -94,6 +97,47 @@ export default function Post(props) {
         });
     }
   };
+  const likeHandler =()=>{
+    let userPresent;
+    let likesArray;
+    if(user){
+      likedBy.push({
+        likedBy:user.uid,
+      })
+    }
+    
+      db.collection("posts").doc(id).get().then((doc)=>{
+        console.log(doc.data());
+     
+        try {
+          likesArray=doc.data().likes;
+          userPresent= likesArray.find(o => o.likedBy===`${user.uid}`)
+            
+        console.log(userPresent)
+        } catch (error) {
+          console.log(error)
+        }
+      
+        
+        
+      }).then(()=>{
+        if(userPresent){
+          console.log(userPresent)
+         }else{
+           db.collection("posts").doc(id).update({
+             likes:likedBy,
+             likeCount:likeCount+1
+           })
+         }
+        
+       
+      })
+   
+
+
+    
+    console.log(userPresent)
+  }
 
   return (
     <Card className={classes.root}>
@@ -117,7 +161,7 @@ export default function Post(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={likeHandler}>
           <FavoriteIcon />
         </IconButton>
 
@@ -132,7 +176,7 @@ export default function Post(props) {
       
       </CardActions>
       <div>
-          {comments.length!=0 ? (
+          {comments ? (
             comments.map((comment) => {
               return(<Comment username={comment.username} comment={comment.comment} />)
               

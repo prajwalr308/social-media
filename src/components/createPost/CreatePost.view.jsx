@@ -68,7 +68,9 @@ const CreateAPost = (props) => {
                 caption: caption,
                 photoUrl: imageUrl,
                 username: user.email.replace("@gmail.com",""),
-                userPhoto:user.photoURL
+                userPhoto:user.photoURL,
+                likeCount:0,
+                likes:[]
               });
             });
             setCaption("");
