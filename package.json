@@ -2,6 +2,9 @@
   "name": "social-media",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "^16.0.0"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
@@ -9,7 +12,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "firebase": "^8.3.0",
-    "node-sass": "^5.0.0",
+  
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
