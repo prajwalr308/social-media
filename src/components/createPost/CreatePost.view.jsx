@@ -24,7 +24,8 @@ const CreateAPost = (props) => {
   const [user, setUser] = useContext(UserContext).user;
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
-  const [caption, setCaption] = useState("")
+  const [caption, setCaption] = useState("");
+  const [type, setType] = useState('')
   
   function textChangeHandler(e){
       setCaption(e.target.value);
@@ -38,12 +39,13 @@ const CreateAPost = (props) => {
       var imagePreview = document.getElementById("image-preview");
       imagePreview.src = selectedImageSrc;
       imagePreview.style.display = "block";
-      console.log(e.target.files[0]);
+      console.log("type",e.target.files[0]);
+      setType(e.target.files[0].type)
     }
   }
 
   function uploadFileHandler() {
-    if (image) {
+    if (image&&type=='image/png') {
       let imageName = makeid(10);
       const uploadTask = storage.ref(`images/${imageName}.jpg`).put(image);
       uploadTask.on(
@@ -58,7 +60,8 @@ const CreateAPost = (props) => {
           console.log(error);
         },
         () => {
-          storage
+         
+            storage
             .ref("images")
             .child(`${imageName}.jpg`)
             .getDownloadURL()
@@ -70,15 +73,60 @@ const CreateAPost = (props) => {
                 username: user.email.replace("@gmail.com",""),
                 userPhoto:user.photoURL,
                 likeCount:0,
-                likes:[]
+                likes:[],
+                type:type
               });
             });
             setCaption("");
             setProgress(0);
             setImage(null);
             document.getElementById("image-preview").style.display="none"
-        }
+          
+          
+        },
+     
       );
+    }else if(image&&type=='video/mp4'){
+      let videoName = makeid(10);
+      const uploadTask = storage.ref(`videos/${videoName}`).put(image);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+         
+            storage
+            .ref("videos")
+            .child(`${videoName}`)
+            .getDownloadURL()
+            .then((vUrl) => {
+              db.collection("posts").add({
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                caption: caption,
+                photoUrl: vUrl,
+                username: user.email.replace("@gmail.com",""),
+                userPhoto:user.photoURL,
+                likeCount:0,
+                likes:[],
+                type:type
+              });
+            });
+            setCaption("");
+            setProgress(0);
+            setImage(null);
+            document.getElementById("image-preview").style.display="none"
+          
+          
+        },
+     
+      ); 
     }
   }
   return (

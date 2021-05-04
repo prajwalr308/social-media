@@ -26,12 +26,12 @@ const SigninBtnView= ({}) => {
  
   }
     return (
-      <div class='g-sign-in-button'>
-  <div class='content-wrapper'>
-  <div class='logo-wrapper'>  
+      <div className='g-sign-in-button' onClick={signInBtnClick}>
+  <div className='content-wrapper'>
+  <div className='logo-wrapper'>  
     <img src='https://developers.google.com/identity/images/g-logo.png' />
     </div>  
-    <span class='text-container'> 
+    <span className='text-container'> 
       <span>Sign in with Google</span>
     </span>
   </div>  

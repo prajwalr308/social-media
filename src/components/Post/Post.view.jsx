@@ -21,7 +21,8 @@ import Comment from "../comment/Comment";
 import { db, storage } from "../../firebase";
 import { UserContext } from "../../contexts/user";
 import CommentInput from "../commentInput/CommentInput";
-import styles from './post.module.css'
+import styles from './post.module.css';
+import ReactPlayer from 'react-player'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,7 +60,7 @@ export default function Post(props) {
     caption,
     comments,
     likeCount,
-    likes
+    likes,type
   } = props;
   const classes = useStyles();
 
@@ -140,7 +141,8 @@ export default function Post(props) {
   }
 
   return (
-    <Card className={classes.root}>
+    <div>
+   { type=='image/png'? <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -188,6 +190,57 @@ export default function Post(props) {
         <div className={styles.empty}></div>
       <CommentInput commentbool={commentbool} id={id} comments={comments}  />
       <div className={styles.empty}></div>
-    </Card>
+    </Card>:<Card className={classes.root}>
+      <CardHeader
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar}>
+            <img src={userPhoto} />
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings" onClick={deletePost}>
+            <DeleteIcon />
+          </IconButton>
+        }
+        title={username}
+      />
+      <ReactPlayer controls playIcon playing url={photoUrl} />
+     
+      <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {caption}
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites" onClick={likeHandler}>
+          <FavoriteIcon />
+        </IconButton>
+
+        <IconButton onClick={()=>{
+          setCommentbool(!commentbool);
+
+        }} >
+          <ChatBubbleIcon />
+        </IconButton>
+        
+        <br></br>
+      
+      </CardActions>
+      <div>
+          {comments ? (
+            comments.map((comment) => {
+              return(<Comment username={comment.username} comment={comment.comment} />)
+              
+            })
+          ) : (
+            <></>
+          )}
+        </div>
+        <div className={styles.empty}></div>
+      <CommentInput commentbool={commentbool} id={id} comments={comments}  />
+      <div className={styles.empty}></div>
+    </Card>}
+    </div>
+    
   );
 }

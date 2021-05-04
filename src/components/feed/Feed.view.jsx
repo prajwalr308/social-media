@@ -29,6 +29,7 @@ const Feed = () => {
             caption={post.caption}
             comments={post.comments}
             likeCount={post.likeCount}
+            type={post.type}
           />
         );
       })}
