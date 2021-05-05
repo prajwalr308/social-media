@@ -122,6 +122,9 @@ export default function Post(props) {
         
         
       }).then(()=>{
+        if(user){
+
+       
         if(userPresent){
           console.log(userPresent)
          }else{
@@ -130,7 +133,7 @@ export default function Post(props) {
              likeCount:likeCount+1
            })
          }
-        
+        }
        
       })
    
@@ -166,6 +169,7 @@ export default function Post(props) {
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites" onClick={likeHandler}>
           <FavoriteIcon />
+          <p>{likeCount}</p>
         </IconButton>
 
         <IconButton onClick={()=>{
@@ -213,8 +217,9 @@ export default function Post(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={likeHandler}>
+        <IconButton  aria-label="add to favorites" onClick={likeHandler}>
           <FavoriteIcon />
+          <p>{likeCount}</p>
         </IconButton>
 
         <IconButton onClick={()=>{
