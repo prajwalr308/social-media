@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import Post from "../Post";
+import './feed.css'
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -16,7 +17,7 @@ const Feed = () => {
   }, []);
 
   return (
-    <div>
+    <div className="feed">
       {posts.map(({ id, post }) => {
         return (
           <Post

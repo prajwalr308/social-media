@@ -27,9 +27,9 @@ import ReactPlayer from 'react-player'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 645,
+    width: 645,
     marginTop: "3%",
-    marginLeft: "30%",
+   
   },
   media: {
     height: 0,
@@ -141,9 +141,10 @@ export default function Post(props) {
   }
 
   return (
-    <div>
+    <div className={styles.post}>
    { type=='image/png'? <Card className={classes.root}>
       <CardHeader
+      
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
             <img src={userPhoto} />

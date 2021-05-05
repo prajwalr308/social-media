@@ -1,3 +1,7 @@
 .empty{
     height: 30px;
 }
+.post{
+    display: grid;
+    place-items: center;
+}
