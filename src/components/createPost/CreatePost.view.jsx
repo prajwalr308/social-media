@@ -6,6 +6,10 @@ import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import "./extrastyles.css";
 import { db, storage } from "../../firebase";
 import makeid from "../../helper/functions";
+import Resizer from "react-image-file-resizer";
+
+
+
 import firebase from "firebase";
 
 function SignedIn() {
@@ -26,13 +30,40 @@ const CreateAPost = (props) => {
   const [progress, setProgress] = useState(0);
   const [caption, setCaption] = useState("");
   const [type, setType] = useState('')
-  
+ 
+  const resizeFile = (file) =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      300,
+      300,
+      "PNG",
+      100,
+      0,
+      (uri) => {
+        resolve(uri);
+      },
+      "blob"
+    );
+  });
   function textChangeHandler(e){
       setCaption(e.target.value);
   }
-  function handleChange(e) {
+ async function handleChange(e) {
     console.log(e);
-    if (e.target.files[0]) {
+    if (e.target.files[0]&&e.target.files[0].type=='image/png') {
+      const file = e.target.files[0];
+      const image = await resizeFile(file);
+      setImage(image);
+
+      var selectedImageSrc = URL.createObjectURL(e.target.files[0]);
+      var imagePreview = document.getElementById("image-preview");
+      imagePreview.src = selectedImageSrc;
+      imagePreview.style.display = "block";
+      console.log("type",e.target.files[0]);
+      setType(e.target.files[0].type)
+    }else{
+      
       setImage(e.target.files[0]);
 
       var selectedImageSrc = URL.createObjectURL(e.target.files[0]);

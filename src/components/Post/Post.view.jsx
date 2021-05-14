@@ -23,14 +23,11 @@ import { UserContext } from "../../contexts/user";
 import CommentInput from "../commentInput/CommentInput";
 import styles from './post.module.css';
 import ReactPlayer from 'react-player'
+import Resizer from "react-image-file-resizer";
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: 645,
-    marginTop: "3%",
-   
-  },
+ 
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9
@@ -75,6 +72,7 @@ export default function Post(props) {
   useEffect(() => {
     console.log(comments)
   }, [])
+  
 
   const deletePost = () => {
     if (username == currentUser) {
@@ -145,7 +143,7 @@ export default function Post(props) {
 
   return (
     <div className={styles.post}>
-   { type=='image/png'? <Card className={classes.root}>
+   { type=='image/png'? <Card className={styles.root}   >
       <CardHeader
       
         avatar={
@@ -160,7 +158,7 @@ export default function Post(props) {
         }
         title={username}
       />
-      <CardMedia className={classes.media} image={photoUrl} />
+      <img className={styles.image} src={photoUrl} />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {caption}
@@ -195,8 +193,8 @@ export default function Post(props) {
         <div className={styles.empty}></div>
       <CommentInput commentbool={commentbool} id={id} comments={comments}  />
       <div className={styles.empty}></div>
-    </Card>:<Card className={classes.root}>
-      <CardHeader
+    </Card>:<Card className={styles.root} >
+      <CardHeader 
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
             <img src={userPhoto} />
@@ -209,7 +207,16 @@ export default function Post(props) {
         }
         title={username}
       />
-      <ReactPlayer controls playIcon playing url={photoUrl} />
+      <div className={styles.wrapper}>
+        <ReactPlayer
+        controls playIcon playing url={photoUrl}
+         
+          width='100%'
+          height='100%'
+          className={styles.player}
+        />
+      </div>
+  
      
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
