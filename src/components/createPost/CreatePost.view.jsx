@@ -30,6 +30,7 @@ const CreateAPost = (props) => {
   const [progress, setProgress] = useState(0);
   const [caption, setCaption] = useState("");
   const [type, setType] = useState('')
+  const [typeCheck, setTypeCheck] = useState('')
  
   const resizeFile = (file) =>
   new Promise((resolve) => {
@@ -51,7 +52,14 @@ const CreateAPost = (props) => {
   }
  async function handleChange(e) {
     console.log(e);
-    if (e.target.files[0]&&e.target.files[0].type=='image/png') {
+    const imageFile =e.target.files[0].type;
+    console.log(imageFile)
+    const imageTypes=['image/png','image/jpeg']
+    const typeExist=imageTypes.find(element => imageFile==element);
+    console.log("56 type exists",typeExist)
+    await setTypeCheck(typeExist);
+
+    if (e.target.files[0]&&e.target.files[0].type==typeExist) {
       const file = e.target.files[0];
       const image = await resizeFile(file);
       setImage(image);
@@ -76,7 +84,7 @@ const CreateAPost = (props) => {
   }
 
   function uploadFileHandler() {
-    if (image&&type=='image/png') {
+    if (image&&type==typeCheck) {
       let imageName = makeid(10);
       const uploadTask = storage.ref(`images/${imageName}.jpg`).put(image);
       uploadTask.on(
