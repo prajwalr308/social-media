@@ -23,7 +23,7 @@ import { UserContext } from "../../contexts/user";
 import CommentInput from "../commentInput/CommentInput";
 import styles from './post.module.css';
 import ReactPlayer from 'react-player'
-import Resizer from "react-image-file-resizer";
+
 
 
 const useStyles = makeStyles((theme) => ({
