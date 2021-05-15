@@ -65,12 +65,19 @@ export default function Post(props) {
   const [commentbool, setCommentbool] = useState(false)
   const [user, setUser] = useContext(UserContext).user;
   const [likedBy, setLikedBy] = useState([])
+  const [typeCheck, setTypeCheck] = useState('')
   let currentUser;
   if (user) {
     currentUser = user.email.replace("@gmail.com", "");
   }
   useEffect(() => {
     console.log(comments)
+   
+ 
+    const imageTypes=['image/png','image/jpeg']
+    const typeExist=imageTypes.find(element => type==element);
+    console.log("56 type exists",typeExist)
+    setTypeCheck(typeExist);
   }, [])
   
 
@@ -143,7 +150,7 @@ export default function Post(props) {
 
   return (
     <div className={styles.post}>
-   { type=='image/png'? <Card className={styles.root}   >
+   { type==typeCheck? <Card className={styles.root}   >
       <CardHeader
       
         avatar={
