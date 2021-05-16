@@ -17,9 +17,9 @@ function SignedIn() {
     <div className={styles.signin}>
       <div className={styles.signinBtn}>
         {" "}
-        <SigninBtn />
+        
       </div>
-      <p>Sign in to post</p>
+     
     </div>
   );
 }
