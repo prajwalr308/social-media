@@ -5,14 +5,34 @@ import Floatingbtn from '../../components/floatingbtn/Floatingbtn'
 import Navbar from '../../components/navbar'
 import Profile from '../../components/profile/Profile'
 import SigninBtn from '../../components/signin-btn'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  
+} from "react-router-dom";
 
 const HomeView = () => {
   return (
     <div>
-      <Navbar />
+        <Router>
+       <Switch>
+          <Route path="/" exact>
+         
+          <Navbar />
       <CreatePost />
       <Feed />
       <Floatingbtn />
+    
+          </Route>
+          <Route path="/profile" exact>
+            <Profile />
+          </Route>
+          
+        </Switch>
+     
+    </Router>
+     
       </div>
   )
 }

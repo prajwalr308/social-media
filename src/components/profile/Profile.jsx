@@ -1,13 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import "./profile.css"
 import {UserContext} from '../../contexts/user'
+import Navbar from '../navbar'
 
 
-const Profile = () => {
-    const [user, setUser] = useContext(UserContext).user;
-    console.log(user)
+const Profile = ({user}) => {
+
+ useEffect(() => {
+     console.log(user)
+ }, [user])
     return (
-        <div>
+
+      <div>
+            <Navbar />
+            {user?<div>
             <div>
                 <img />
                 <img src={user.photoURL} />
@@ -16,7 +22,7 @@ const Profile = () => {
                 <h6>Name{user.displayName}</h6>
                 <h6>Gmail{user.email}</h6>
                 
-            </div>
+            </div></div>:null}
         </div>
     )
 }
