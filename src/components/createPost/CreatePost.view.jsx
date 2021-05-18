@@ -120,7 +120,7 @@ const CreateAPost = (props) => {
             setCaption("");
             setProgress(0);
             setImage(null);
-            document.getElementById("image-preview").style.display="none"
+            document.getElementById("image-preview").style.visibility="hidden"
           
           
         },
@@ -174,7 +174,8 @@ const CreateAPost = (props) => {
       <div className={styles.createPostBox}>
         <h5>Create post</h5>
         <div className="createPostContainer">
-        <div className={styles.imagePreview}>
+        <div className={styles.imagePreview} style={{display:" grid",
+    placeItems:"center"}} >
             <img id="image-preview" alt="" />
           </div>
           <textarea
