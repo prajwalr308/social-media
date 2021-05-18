@@ -1,6 +1,7 @@
 .signinBtn{
    margin-left: 40%;
 }
+
 .signin{
     display: flex;
    
@@ -10,36 +11,60 @@
     
    
 }
-.createPosts {
-    background-color: rgb(230, 230, 230);
-}
-.createPosts >p{
-    float: left;
-}
+
 .createPostBox{
-    width: 50%;
+    width: 280px;
+    margin-left: 3%;
     padding:10px;
-    margin-top: 10px;
-    margin-left: 25%;
+    margin-top: 5%;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
+    text-align: center;
 }
 .createPostImageUpload > input{
     display:none;
 }
-.uploadButton{
-    border:none;
-    
-}
 .createPostText{
     border:none;
-    width: 100%;
+    width: 250px;
     max-width: 650px;
-    height:100px;
-    outline:none
+    margin-bottom: 5%;
+    height:50px;
+    outline:none;
+    text-align: center;
+    background-color: rgb(236, 236, 236);
 }
 
-#image-preview{
-    display:none;
-    height: 80px;
+
+.up{
+    width: 80px;
+}
+
+@media only screen and (min-width:375px) {
+    .createPostBox{
+        margin-left: 10%;
+    }
+}
+
+@media only screen and (min-width:425px) {
+    .createPostBox{
+        margin-left: 15%;
+    }
+}
+@media only screen and (min-width:500px) {
+    .createPostBox{
+        margin-left: 23%;
+    }
+}
+@media only screen and (min-width:600px) {
+    .createPostBox{
+        margin-left: 28%;
+    }
+}
+
+@media only screen and (min-width:760px) {
+    .createPostBox{
+        margin-left: 23%;
+        width: 400px;
+    }
 }

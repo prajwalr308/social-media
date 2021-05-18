@@ -7,6 +7,7 @@
 .post{
     display: grid;
     place-items: center;
+    margin-top: 5%;
    
 }
 .wrapper {
@@ -26,11 +27,31 @@
       width: 100%;
       max-width: 645px;
   }
+  @media only screen and (min-width:320px) {
+    .root{
+        width: 300px;
+    }
+  }
+  @media only screen and (min-width:375px) {
+    .root{
+        width: 350px;
+    }
+  }
   @media only screen and (min-width:425px) {
     .root{
         width: 400px;
     }
 
+  }
+  @media only screen and (min-width:525px) {
+    .root{
+        width: 500px;
+    }
+  }
+  @media only screen and (min-width:625px) {
+    .root{
+        width: 6y00px;
+    }
   }
   @media only screen and (min-width:768px) {
     .wrapper {

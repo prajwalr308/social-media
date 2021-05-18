@@ -11,6 +11,7 @@ import { UserContext } from '../../contexts/user';
 import styles from './navbar.module.css'
 import firebase from 'firebase'
 import SignoutBtn from '../signout-btn/SignoutBtn';
+import logo from './logo.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,13 +44,9 @@ export default function Navbar() {
   console.log(userLocal)
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundColor: "#4aa4ff"}} >
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-         
-          </IconButton>
-          <p>hello</p>
+          <a herf="#home"><img src={logo} style={{marginTop: "2px", width: "100px"}}></img></a>
           <Typography variant="h6" className={classes.title} >
            
           </Typography>

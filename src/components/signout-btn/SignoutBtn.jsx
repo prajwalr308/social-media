@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../contexts/user';
 import { logout } from '../../services/auth';
+import log from './logout.png'
 
 const SignoutBtn = () => {
     const [user,setUser] = useContext(UserContext).user;
@@ -10,7 +11,7 @@ const SignoutBtn = () => {
     }
     return (
         <div>
-            <button onClick={signOut} >signout</button>
+            <img src={log} onClick={signOut}  style={{width: "100px"}}></img>
         </div>
     )
 }

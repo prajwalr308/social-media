@@ -27,8 +27,8 @@ const SigninBtnView= ({}) => {
  
   }
     return (
-      <div className='g' onClick={signInBtnClick}>
-        <img  src={btn}    />
+      <div  onClick={signInBtnClick}>
+        <img  src={btn} className="g"   />
  
 </div>
     )
