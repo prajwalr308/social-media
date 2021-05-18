@@ -18,21 +18,18 @@ const HomeView = () => {
         <Router>
        <Switch>
           <Route path="/" exact>
-         
           <Navbar />
       <CreatePost />
       <Feed />
       <Floatingbtn />
-    
           </Route>
           <Route path="/profile" exact>
             <Profile />
           </Route>
           
         </Switch>
-     
+
     </Router>
-     
       </div>
   )
 }

@@ -43,14 +43,14 @@ export default function Navbar() {
   const userLocal = JSON.parse(localStorage.getItem('user'));
   console.log(userLocal)
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <AppBar position="static" style={{backgroundColor: "#4aa4ff"}} >
         <Toolbar>
-          <a herf="#home"><img src={logo} style={{marginTop: "2px", width: "100px"}}></img></a>
+          <a herf="createpost"><img src={logo} style={{marginTop: "2px", width: "100px"}}></img></a>
           <Typography variant="h6" className={classes.title} >
            
           </Typography>
-          {user ? (<div style={{display:"flex"}}><img className={styles.profileImg} src={user.photoURL} /><SignoutBtn /> </div>): (<SigninBtn />)}
+          {user ? (<div style={{display:"flex"}}><a href="profile"><img className={styles.profileImg} src={user.photoURL} /></a> </div>): (<SigninBtn />)}
         </Toolbar>
         
       </AppBar>

@@ -1,0 +1,26 @@
+.profilecover{
+    width: 100%;
+}
+
+.profileimg{
+    border-radius: 100px;
+    margin-top: -40px;
+    margin-left: 10%;
+    width: 30%;
+}
+.profiletext p{
+    color: #4aa4ff ;
+    font-family: "poppins";
+    font-size: 20px;
+    margin-left: 10%;
+}
+.profiletext h5{
+    margin-left: 10%;
+    margin-top: 20px;
+}
+.profiletext h6{
+    margin-left: 10%;
+    color: #4aa4ff ;
+    margin-top: 10px;
+    font-size: 15px;
+}
