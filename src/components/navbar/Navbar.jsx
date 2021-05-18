@@ -52,6 +52,7 @@ export default function Navbar() {
           </Typography>
           {user ? (<div style={{display:"flex"}}><img className={styles.profileImg} src={user.photoURL} /><SignoutBtn /> </div>): (<SigninBtn />)}
         </Toolbar>
+        
       </AppBar>
     </div>
   );
