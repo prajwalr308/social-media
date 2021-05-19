@@ -105,7 +105,7 @@ export default function Navbar() {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem ><a href="/profile">profile</a></MenuItem>
+                    <MenuItem ><a href="/profile" style={{textDecoration:"none",}}>Profile</a></MenuItem>
          
                     <MenuItem onClick={()=>{
                       handleClose()

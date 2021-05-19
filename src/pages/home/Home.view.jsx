@@ -16,7 +16,7 @@ const HomeView = () => {
   return (
     <div>
         <Router>
-       <Switch>
+      <Switch>
           <Route path="/" exact>
           <Navbar />
       <CreatePost />
@@ -30,6 +30,7 @@ const HomeView = () => {
         </Switch>
 
     </Router>
+
       </div>
   )
 }

@@ -4,3 +4,7 @@
    border-radius: 50%;
    margin-right: 30px;
 }
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+    }

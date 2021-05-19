@@ -13,8 +13,8 @@
 }
 
 .createPostBox{
-    width: 280px;
-    margin-left: 3%;
+    width: 87%;
+    margin-left: 3.5%;
     padding:10px;
     margin-top: 5%;
     border-radius: 5px;
@@ -43,29 +43,67 @@
 
 @media only screen and (min-width:375px) {
     .createPostBox{
-        margin-left: 10%;
+        
     }
 }
 
 @media only screen and (min-width:425px) {
     .createPostBox{
-        margin-left: 15%;
+        width: 88%;
     }
 }
 @media only screen and (min-width:500px) {
     .createPostBox{
-        margin-left: 23%;
+  
     }
 }
 @media only screen and (min-width:600px) {
     .createPostBox{
-        margin-left: 28%;
+        margin-left: 11%;
+        width: 74%;
     }
 }
 
 @media only screen and (min-width:760px) {
     .createPostBox{
+        margin-left: 8%;
+        width: 82%;
+    }
+}
+@media only screen and (min-width:820px) {
+    .createPostBox{
+        margin-left: 14%;
+        width: 70%;
+    }
+}
+@media only screen and (min-width:900px) {
+    .createPostBox{
+        margin-left: 17%;
+        width: 63.5%;
+    }
+}
+@media only screen and (min-width:1020px) {
+    .createPostBox{
+        margin-left: 18.5%;
+        width: 61%;
+    }
+}
+@media only screen and (min-width:1120px) {
+    .createPostBox{
         margin-left: 23%;
-        width: 400px;
+        width: 52%;
+    }
+}
+@media only screen and (min-width:1240px) {
+    .createPostBox{
+        margin-left: 28%;
+        width: 43%;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    .createPostBox{
+        margin-left: 31%;
+        width: 37%;
     }
 }
