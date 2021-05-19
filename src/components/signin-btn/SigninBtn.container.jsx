@@ -5,7 +5,6 @@ import SigninBtnView from './SigninBtn.view'
 
 const SigninBtn = (props) => {
 
- 
   return (
     <div>
       <SigninBtnView  />

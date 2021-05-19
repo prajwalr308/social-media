@@ -1,0 +1,125 @@
+
+.profilecover{
+    width: 100%;
+} 
+
+.profileimg{
+    border-radius: 100px;
+    margin-top: -40px;
+    margin-left: 10%;
+    width: 30%;
+}
+.profiletext p{
+    color: #4aa4ff ;
+    font-family: "poppins";
+    font-size: 20px;
+    margin-left: 10%;
+}
+.profiletext h5{
+    margin-left: 10%;
+    margin-top: 20px;
+}
+.profiletext h6{
+    margin-left: 10%;
+    color: #4aa4ff ;
+    margin-top: 10px;
+    font-size: 15px;
+}
+@media only screen and (min-width:450px) {
+    .profilecover{
+        width: 100%;    
+    }
+    .profileimg{
+        width: 20%;
+    }
+
+}
+@media only screen and (min-width:550px) {
+    .profilecover{
+        width: 100%;
+        height: 300px;    
+    }
+    .profileimg{
+        width: 23%;
+        margin-top: -10%;
+        margin-left: 15%;
+    }
+    .profiletext h5{
+        font-size: 20px;
+        margin-left: 17%;
+    }
+    .profiletext h6{
+        margin-left: 17%;
+        font-size: 20px;
+    }
+
+}
+@media only screen and (min-width:700px) {
+    .profilecover{
+        width: 100%;
+        height: 240px;    
+    }
+    .profileimg{
+        width: 20%;
+        margin-top: -10%;
+        margin-left: 15%;
+    }
+
+}
+@media only screen and (min-width:800px) {
+    .profilecover{
+        width: 100%;
+        height: 260px;    
+    }
+    .profileimg{
+        width: 18%;
+        margin-top: -10%;
+        margin-left: 15%;
+    }
+
+}
+@media only screen and (min-width:900px) {
+    .profilecover{
+        width: 100%;
+        height: 270px;    
+    }
+    .profileimg{
+        width: 12%;
+        margin-top: -6%;
+        margin-left: 15%;
+    }
+
+}
+@media only screen and (min-width:1000px) {
+    .profilecover{
+        width: 100%;
+        height: 320px;    
+    }
+    .profileimg{
+        width: 15%;
+        margin-top: -6%;
+        margin-left: 15%;
+    }
+}
+@media only screen and (min-width:1100px) {
+    .profilecover{
+        width: 100%;
+        height: 320px;
+        border-top-left-radius: 10px ; 
+        border-top-right-radius: 10px;   
+    }
+    .profileimg{
+        width: 15%;
+        margin-top: -6%;
+        margin-left: 15%;
+    }
+    .profilebox{
+        width: 60%;
+        height: 650px;
+    background-color:rgb(223, 223, 223);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20%;
+    }
+
+}

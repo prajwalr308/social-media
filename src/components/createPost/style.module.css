@@ -1,6 +1,7 @@
 .signinBtn{
    margin-left: 40%;
 }
+
 .signin{
     display: flex;
    
@@ -10,36 +11,99 @@
     
    
 }
-.createPosts {
-    background-color: rgb(230, 230, 230);
-}
-.createPosts >p{
-    float: left;
-}
+
 .createPostBox{
-    width: 50%;
+    width: 87%;
+    margin-left: 3.5%;
     padding:10px;
-    margin-top: 10px;
-    margin-left: 25%;
+    margin-top: 5%;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
+    text-align: center;
 }
 .createPostImageUpload > input{
     display:none;
 }
-.uploadButton{
-    border:none;
-    
-}
 .createPostText{
     border:none;
-    width: 100%;
+    width: 250px;
     max-width: 650px;
-    height:100px;
-    outline:none
+    margin-bottom: 5%;
+    height:50px;
+    outline:none;
+    text-align: center;
+    background-color: rgb(241, 241, 241);
+    padding-top:20px;
 }
 
-#image-preview{
-    display:none;
-    height: 80px;
+
+.up{
+    width: 80px;
+}
+
+@media only screen and (min-width:375px) {
+    .createPostBox{
+        
+    }
+}
+
+@media only screen and (min-width:425px) {
+    .createPostBox{
+        width: 88%;
+    }
+}
+@media only screen and (min-width:500px) {
+    .createPostBox{
+  
+    }
+}
+@media only screen and (min-width:600px) {
+    .createPostBox{
+        margin-left: 11%;
+        width: 74%;
+    }
+}
+
+@media only screen and (min-width:760px) {
+    .createPostBox{
+        margin-left: 8%;
+        width: 82%;
+    }
+}
+@media only screen and (min-width:820px) {
+    .createPostBox{
+        margin-left: 14%;
+        width: 70%;
+    }
+}
+@media only screen and (min-width:900px) {
+    .createPostBox{
+        margin-left: 17%;
+        width: 63.5%;
+    }
+}
+@media only screen and (min-width:1020px) {
+    .createPostBox{
+        margin-left: 18.5%;
+        width: 61%;
+    }
+}
+@media only screen and (min-width:1120px) {
+    .createPostBox{
+        margin-left: 23%;
+        width: 52%;
+    }
+}
+@media only screen and (min-width:1240px) {
+    .createPostBox{
+        margin-left: 28%;
+        width: 43%;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    .createPostBox{
+        margin-left: 31%;
+        width: 37%;
+    }
 }

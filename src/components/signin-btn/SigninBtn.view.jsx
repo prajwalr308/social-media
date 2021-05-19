@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import { UserContext } from '../../contexts/user'
 import './style.css'
 import { signInWithGoogle } from '../../services/auth'
+import btn from './btn.png'
 
 import firebase from 'firebase'
 
@@ -26,15 +27,9 @@ const SigninBtnView= ({}) => {
  
   }
     return (
-      <div className='g-sign-in-button' onClick={signInBtnClick}>
-  <div className='content-wrapper'>
-  <div className='logo-wrapper'>  
-    <img src='https://developers.google.com/identity/images/g-logo.png' />
-    </div>  
-    <span className='text-container'> 
-      <span>Sign in with Google</span>
-    </span>
-  </div>  
+      <div  onClick={signInBtnClick}>
+        <img  src={btn} className="g"   />
+ 
 </div>
     )
 }
