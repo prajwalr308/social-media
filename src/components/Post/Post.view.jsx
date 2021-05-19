@@ -23,6 +23,19 @@ import { UserContext } from "../../contexts/user";
 import CommentInput from "../commentInput/CommentInput";
 import styles from './post.module.css';
 import ReactPlayer from 'react-player'
+import {Modal,SimpleModal} from '@material-ui/core/';
+import { signInWithGoogle } from "../../services/auth";
+import SigninBtn from "../signin-btn";
+
+
+function getModalStyle() {
+ 
+
+  return {
+    top: `50%`,
+    left: `50%`,
+  };
+}
 
 
 
@@ -44,6 +57,14 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: red[500],
+  },
+  paper: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
   },
 }));
 
@@ -79,6 +100,27 @@ export default function Post(props) {
     console.log("56 type exists",typeExist)
     setTypeCheck(typeExist);
   }, [])
+
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title">Warning</h2>
+      <p id="simple-modal-description">
+        Log In to delete the post
+      </p>
+      <SigninBtn />
+    </div>
+  );
   
 
   const deletePost = () => {
@@ -151,6 +193,7 @@ export default function Post(props) {
   return (
     <div className={styles.post}>
    { type==typeCheck? <Card className={styles.root}   >
+  
       <CardHeader
       
         avatar={
@@ -159,12 +202,20 @@ export default function Post(props) {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings" onClick={deletePost}>
+          <IconButton aria-label="settings" onClick={() => {deletePost();handleOpen()}}>
             <DeleteIcon />
           </IconButton>
         }
         title={username}
       />
+       <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
       <img className={styles.image} src={photoUrl} />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -208,12 +259,20 @@ export default function Post(props) {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings" onClick={deletePost}>
+          <IconButton aria-label="settings" onClick={() => {deletePost();handleOpen()}}>
             <DeleteIcon />
           </IconButton>
         }
         title={username}
       />
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
       <div className={styles.wrapper}>
         <ReactPlayer
         controls playIcon playing url={photoUrl}
