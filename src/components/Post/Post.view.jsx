@@ -1,5 +1,5 @@
 import React, { createRef, useContext, useEffect,useRef,useState } from "react";
-import { makeStyles, StylesProvider } from "@material-ui/core/styles";
+import { makeStyles, StylesProvider, } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -23,19 +23,12 @@ import { UserContext } from "../../contexts/user";
 import CommentInput from "../commentInput/CommentInput";
 import styles from './post.module.css';
 import ReactPlayer from 'react-player'
-import {Modal,SimpleModal} from '@material-ui/core/';
+import {Modal,SimpleModal,} from '@material-ui/core/';
 import { signInWithGoogle } from "../../services/auth";
 import SigninBtn from "../signin-btn";
 
 
-function getModalStyle() {
- 
 
-  return {
-    top: `50%`,
-    left: `50%`,
-  };
-}
 
 
 
@@ -60,12 +53,21 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     position: 'absolute',
-    width: 400,
+    top:'50%',
+   
+    left:'10%',
+    
+    width: '60%',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    ['@media (min-width:780px)']: { // eslint-disable-line no-useless-computed-key
+      width: 400,
+      left:'30%',
+    }
   },
+  
 }));
 
 export default function Post(props) {
@@ -101,7 +103,7 @@ export default function Post(props) {
     setTypeCheck(typeExist);
   }, [])
 
-  const [modalStyle] = React.useState(getModalStyle);
+  
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -113,7 +115,7 @@ export default function Post(props) {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
+    <div className={classes.paper}>
       <h2 id="simple-modal-title">Warning</h2>
       <p id="simple-modal-description">
         Log In to delete the post
