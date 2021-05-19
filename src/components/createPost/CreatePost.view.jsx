@@ -7,6 +7,7 @@ import "./extrastyles.css";
 import { db, storage } from "../../firebase";
 import makeid from "../../helper/functions";
 import Resizer from "react-image-file-resizer";
+import upload from './upload.png'
 
 
 
@@ -17,9 +18,9 @@ function SignedIn() {
     <div className={styles.signin}>
       <div className={styles.signinBtn}>
         {" "}
-        <SigninBtn />
+        
       </div>
-      <p>Sign in to post</p>
+     
     </div>
   );
 }
@@ -119,7 +120,7 @@ const CreateAPost = (props) => {
             setCaption("");
             setProgress(0);
             setImage(null);
-            document.getElementById("image-preview").style.display="none"
+            document.getElementById("image-preview").style.visibility="hidden"
           
           
         },
@@ -169,22 +170,23 @@ const CreateAPost = (props) => {
     }
   }
   return (
-    <div className={styles.createPosts}>
+    <div className={styles.createPosts} id="createpost">
       <div className={styles.createPostBox}>
-        <p>create post</p>
+        <h5>Create post</h5>
         <div className="createPostContainer">
+        <div className={styles.imagePreview} style={{display:" grid",
+    placeItems:"center"}} >
+            <img id="image-preview" alt="" />
+          </div>
           <textarea
             className={styles.createPostText}
             rows="3"
             value={caption}
             onChange={textChangeHandler}
-            placeholder="enter caption here"
+            placeholder="Caption"
           ></textarea>
-          <div className={styles.imagePreview}>
-            <img id="image-preview" alt="" />
-          </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", justifyContent: "space-between"}}>
           <div className={styles.createPostImageUpload}>
             <label htmlFor="fileInput">
               <AddAPhotoIcon style={{ cursor: "pointer" }} />
@@ -197,13 +199,10 @@ const CreateAPost = (props) => {
               onChange={handleChange}
             />
           </div>
-          <button
-            className={styles.uploadButton}
-            onClick={uploadFileHandler}
-            style={{ color: caption ? "#000" : "lightgrey" }}
-          >
-            {`Upload ${progress !=0 ? progress : ""}`}
-          </button>
+          <img src={upload} onClick={uploadFileHandler}  className={styles.up}>
+          
+          </img>
+          
         </div>
       </div>
     </div>
