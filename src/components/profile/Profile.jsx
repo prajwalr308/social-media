@@ -14,9 +14,9 @@ const Profile = ({user}) => {
  }, [user])
     return (
 
-      <div id="profile">
+      <div>
             <Navbar />
-            {user?<div>
+            {user?<div className="profilebox">
                 <div>
                 <img  src={cover} className="profilecover"/>
                 <img src={user.photoURL}  className="profileimg"/>
