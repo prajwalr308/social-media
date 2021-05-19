@@ -86,7 +86,7 @@ export default function Navbar() {
     <div className={classes.root} >
       <AppBar position="static" style={{backgroundColor: "#4aa4ff"}} >
         <Toolbar>
-          <a herf="createpost"><img src={logo} style={{marginTop: "2px", width: "100px"}}></img></a>
+          <a href="/"><img src={logo} style={{marginTop: "2px", width: "100px"}}/></a>
           <Typography variant="h6" className={classes.title} >
            
           </Typography>
