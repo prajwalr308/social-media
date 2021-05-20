@@ -31,7 +31,8 @@ const CreateAPost = (props) => {
   const [progress, setProgress] = useState(0);
   const [caption, setCaption] = useState("");
   const [type, setType] = useState('')
-  const [typeCheck, setTypeCheck] = useState('')
+  const [typeCheck, setTypeCheck] = useState('');
+  const [istype, setistype] = useState(true)
  
   const resizeFile = (file) =>
   new Promise((resolve) => {
@@ -60,11 +61,12 @@ const CreateAPost = (props) => {
     console.log("56 type exists",typeExist)
     await setTypeCheck(typeExist);
 
+
     if (e.target.files[0]&&e.target.files[0].type==typeExist) {
       const file = e.target.files[0];
       const image = await resizeFile(file);
       setImage(image);
-
+      setistype(true);
       var selectedImageSrc = URL.createObjectURL(e.target.files[0]);
       var imagePreview = document.getElementById("image-preview");
       imagePreview.src = selectedImageSrc;
@@ -72,13 +74,13 @@ const CreateAPost = (props) => {
       console.log("type",e.target.files[0]);
       setType(e.target.files[0].type)
     }else{
-      
+      setistype(false);
       setImage(e.target.files[0]);
 
       var selectedImageSrc = URL.createObjectURL(e.target.files[0]);
-      var imagePreview = document.getElementById("image-preview");
-      imagePreview.src = selectedImageSrc;
-      imagePreview.style.display = "block";
+      var videoPreview = document.getElementById("video-preview");
+      videoPreview.src = selectedImageSrc;
+      videoPreview.style.display = "block";
       console.log("type",e.target.files[0]);
       setType(e.target.files[0].type)
     }
@@ -120,7 +122,8 @@ const CreateAPost = (props) => {
             setCaption("");
             setProgress(0);
             setImage(null);
-            document.getElementById("image-preview").style.visibility="hidden"
+            document.getElementById("image-preview").style.visibility="hidden";
+            
           
           
         },
@@ -161,7 +164,8 @@ const CreateAPost = (props) => {
             setCaption("");
             setProgress(0);
             setImage(null);
-            document.getElementById("image-preview").style.display="none"
+            document.getElementById("image-preview").style.display='none'
+            document.getElementById("video-preview").style.visibility="hidden";;
           
           
         },
@@ -176,7 +180,12 @@ const CreateAPost = (props) => {
         <div className="createPostContainer">
         <div className={styles.imagePreview} style={{display:" grid",
     placeItems:"center"}} >
-            <img id="image-preview" alt="" />
+            {istype ?<img id="image-preview" alt="" />:
+            <video width="320" height="240" controls>
+  <source id="video-preview"  type="video/mp4" />
+  
+ 
+</video>}
           </div>
           <textarea
             className={styles.createPostText}

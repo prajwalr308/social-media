@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    ['@media (min-width:780px)']: { // eslint-disable-line no-useless-computed-key
+    ['@media (min-width:780px)']: {
       width: 400,
       left:'30%',
     }
@@ -203,8 +203,10 @@ export default function Post(props) {
             <img src={userPhoto} />
           </Avatar>
         }
-        action={
+        action={!user?
           <IconButton aria-label="settings" onClick={() => {deletePost();handleOpen()}}>
+            <DeleteIcon />
+          </IconButton>: <IconButton aria-label="settings" onClick={deletePost}>
             <DeleteIcon />
           </IconButton>
         }
