@@ -4,10 +4,13 @@ import { UserContext } from '../../contexts/user'
 import './style.css'
 import { signInWithGoogle } from '../../services/auth'
 import btn from './btn.png'
+import { useHistory } from "react-router-dom";
+
 
 import firebase from 'firebase'
 
 const SigninBtnView= ({}) => {
+  let history = useHistory();
 
   const [user,setUser] = useContext(UserContext).user;
  
@@ -18,7 +21,7 @@ const SigninBtnView= ({}) => {
       
       setUser(userAfterSignIn)
       console.log(userAfterSignIn);
-    
+      history.push("/");
      
     }  
  

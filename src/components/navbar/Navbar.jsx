@@ -14,6 +14,7 @@ import SignoutBtn from '../signout-btn/SignoutBtn';
 import logo from './logo.png'
 import {BrowserRouter as Router,Link} from "react-router-dom";
 import { logout } from '../../services/auth';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Navbar() {
+  let history = useHistory();
   const classes = useStyles();
 
   const [user,setUser] = useContext(UserContext).user;
@@ -42,6 +44,7 @@ export default function Navbar() {
   const signout=()=>{
     logout();
     setUser(null);
+    history.push("/");
   }
   const handleClose = (event) => {
    

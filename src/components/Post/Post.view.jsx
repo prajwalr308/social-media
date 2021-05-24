@@ -88,7 +88,8 @@ export default function Post(props) {
   const [commentbool, setCommentbool] = useState(false)
   const [user, setUser] = useContext(UserContext).user;
   const [likedBy, setLikedBy] = useState([])
-  const [typeCheck, setTypeCheck] = useState('')
+  const [typeCheck, setTypeCheck] = useState('');
+  const [isLiked, setisLiked] = useState(false)
   let currentUser;
   if (user) {
     currentUser = user.email.replace("@gmail.com", "");
@@ -163,7 +164,7 @@ export default function Post(props) {
           likesArray=doc.data().likes;
           userPresent= likesArray.find(o => o.likedBy===`${user.uid}`)
             
-        console.log(userPresent)
+        console.log("167",userPresent)
         } catch (error) {
           console.log(error)
         }
@@ -175,7 +176,16 @@ export default function Post(props) {
 
        
         if(userPresent){
-          console.log(userPresent)
+          var newArry=likedBy.filter(o => o.likedBy!==`${user.uid}`);
+          console.log("new",newArry);
+       
+     
+            db.collection("posts").doc(id).update({
+              likes:newArry,
+              likeCount:likeCount-1
+            })
+          
+          
          }else{
            db.collection("posts").doc(id).update({
              likes:likedBy,
@@ -187,7 +197,7 @@ export default function Post(props) {
       })
    
 
-
+setisLiked(true);
     
     console.log(userPresent)
   }
@@ -228,7 +238,7 @@ export default function Post(props) {
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites" onClick={likeHandler}>
-          <FavoriteIcon />
+          <FavoriteIcon style={isLiked?{color:"#42abfc"}:{color:"initial"}} />
           <p>{likeCount}</p>
         </IconButton>
 

@@ -8,7 +8,8 @@ import { db, storage } from "../../firebase";
 import makeid from "../../helper/functions";
 import Resizer from "react-image-file-resizer";
 import upload from './upload.png'
-
+import { makeStyles } from '@material-ui/core/styles';
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 
 import firebase from "firebase";
@@ -24,6 +25,14 @@ function SignedIn() {
     </div>
   );
 }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 const CreateAPost = (props) => {
   
   const [user, setUser] = useContext(UserContext).user;
@@ -33,6 +42,7 @@ const CreateAPost = (props) => {
   const [type, setType] = useState('')
   const [typeCheck, setTypeCheck] = useState('');
   const [istype, setistype] = useState(true)
+  const [isSuccess,setIsSuccess]=useState(false);
  
   const resizeFile = (file) =>
   new Promise((resolve) => {
@@ -122,6 +132,7 @@ const CreateAPost = (props) => {
             setCaption("");
             setProgress(0);
             setImage(null);
+            setIsSuccess(true);
             document.getElementById("image-preview").style.visibility="hidden";
             
           
@@ -163,7 +174,7 @@ const CreateAPost = (props) => {
             });
             setCaption("");
             setProgress(0);
-            setImage(null);
+           
             document.getElementById("image-preview").style.display='none'
             document.getElementById("video-preview").style.visibility="hidden";;
           
@@ -172,6 +183,7 @@ const CreateAPost = (props) => {
      
       ); 
     }
+    setImage(null);
   }
   return (
     <div className={styles.createPosts} id="createpost">
@@ -213,6 +225,7 @@ const CreateAPost = (props) => {
           </img>
           
         </div>
+        {isSuccess ?<Alert severity="success">Upload successfull</Alert>:""}
       </div>
     </div>
   );
