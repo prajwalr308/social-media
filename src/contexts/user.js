@@ -7,6 +7,7 @@ import {
   } from "react-router-dom";
 import Profile from "../components/profile/Profile";
 import Signin from "../pages/signin/Signin";
+import Tempsignin from "../pages/tempSignin/Tempsignin";
 
 export const UserContext =createContext();
 export const UserContextProvider = ({children})=>{
@@ -26,7 +27,8 @@ export const UserContextProvider = ({children})=>{
             <Profile user={user} />
           </Route>
           <Route path="/signin" exact>
-            <Signin user={user} />
+            {/* <Signin user={user} /> */}
+            <Tempsignin signIn={{user}} />
           </Route>
           
         </Switch>
