@@ -184,6 +184,7 @@ export default function Post(props) {
               likes:newArry,
               likeCount:likeCount-1
             })
+            setisLiked(false)
           
           
          }else{
@@ -238,7 +239,7 @@ setisLiked(true);
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites" onClick={likeHandler}>
-          <FavoriteIcon style={isLiked?{color:"#42abfc"}:{color:"initial"}} />
+          <FavoriteIcon style={isLiked?{color:"#42abfc"}:{color:"#757575"}} />
           <p>{likeCount}</p>
         </IconButton>
 
@@ -289,7 +290,7 @@ setisLiked(true);
       </Modal>
       <div className={styles.wrapper}>
         <ReactPlayer
-        controls playIcon playing url={photoUrl}
+        controls playIcon url={photoUrl}
          
           width='100%'
           height='100%'
@@ -305,7 +306,7 @@ setisLiked(true);
       </CardContent>
       <CardActions disableSpacing>
         <IconButton  aria-label="add to favorites" onClick={likeHandler}>
-          <FavoriteIcon />
+          <FavoriteIcon style={isLiked?{color:"#42abfc"}:{color:"#757575"}} />
           <p>{likeCount}</p>
         </IconButton>
 

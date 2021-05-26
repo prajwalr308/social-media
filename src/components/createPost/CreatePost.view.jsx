@@ -174,8 +174,8 @@ const CreateAPost = (props) => {
             });
             setCaption("");
             setProgress(0);
+            setIsSuccess(true);
            
-            document.getElementById("image-preview").style.display='none'
             document.getElementById("video-preview").style.visibility="hidden";;
           
           
@@ -193,8 +193,8 @@ const CreateAPost = (props) => {
         <div className={styles.imagePreview} style={{display:" grid",
     placeItems:"center"}} >
             {istype ?<img id="image-preview" alt="" />:
-            <video width="320" height="240" controls>
-  <source id="video-preview"  type="video/mp4" />
+            <video id="video-preview"  width="320" height="240" controls>
+  <source  type="video/mp4" />
   
  
 </video>}

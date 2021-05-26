@@ -15,6 +15,7 @@ import logo from './logo.png'
 import {BrowserRouter as Router,Link} from "react-router-dom";
 import { logout } from '../../services/auth';
 import { useHistory } from "react-router-dom";
+import twit from "../../assets/twitt.png"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,7 +90,7 @@ export default function Navbar() {
     <div className={classes.root} >
       <AppBar position="static" style={{backgroundColor: "#4aa4ff"}} >
         <Toolbar>
-          <a href="/"><img src={logo} style={{marginTop: "2px", width: "100px"}}/></a>
+          <a href="/"><img src={twit} style={{marginTop: "2px", width: "35px",color:"white"}}/></a>
           <Typography variant="h6" className={classes.title} >
            
           </Typography>
@@ -120,7 +121,7 @@ export default function Navbar() {
             </Grow>
           )}
         </Popper>
-      </div> </div>): 
+      </div> </div>):<Button variant="outlined" style={{background:"white",color:"#4aa4ff"}} ><a href="/signin">Signin</a></Button> }
         </Toolbar>
         
       </AppBar>
