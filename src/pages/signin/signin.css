@@ -1,0 +1,25 @@
+#grad{
+    height: 635px;
+    background-image: linear-gradient(#00CCFF, #0A4973);
+  }
+  .logo{
+      width: 150px;
+      margin-top: 15%;
+      margin-left: 28%;
+  }
+  .user{
+      width: 20%;
+      margin-top: 15%;
+  }
+  .cont h4{
+    margin-top: 10%;
+}
+  .cont {
+    width: 85%;
+    height: 300px;
+    border-radius: 15px;
+    margin-top:25%;
+    margin-left:8% ;
+    background-color: white;
+    text-align: center;
+  }

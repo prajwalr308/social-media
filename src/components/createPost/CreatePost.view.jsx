@@ -221,7 +221,6 @@ const CreateAPost = (props) => {
             />
           </div>
           <img src={upload} onClick={uploadFileHandler}  className={styles.up}>
-          
           </img>
           
         </div>

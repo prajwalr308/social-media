@@ -8,3 +8,14 @@
     border-radius: 5px;
     
 }
+video{
+    width: 60%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width:320px){
+    video{
+        width: 70%;
+    }
+}
