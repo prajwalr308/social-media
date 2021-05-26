@@ -1,13 +1,12 @@
 .g{
-  width: 50%;
-  margin-left: 100px;
+  width: 80%;
   margin-top: 2%;
 
 }
 
 
-@media only screen and (min-width:375px) {
+@media only screen and (min-width:320px) {
   .g{
-      margin-left: 45%;
+      margin-top: 10%;
   }
 }

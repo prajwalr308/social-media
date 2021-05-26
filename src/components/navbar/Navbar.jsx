@@ -120,7 +120,7 @@ export default function Navbar() {
             </Grow>
           )}
         </Popper>
-      </div> </div>): (<SigninBtn />)}
+      </div> </div>): 
         </Toolbar>
         
       </AppBar>
