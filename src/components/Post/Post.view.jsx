@@ -154,6 +154,7 @@ export default function Post(props) {
     if(user){
       likedBy.push({
         likedBy:user.uid,
+        email:user.email
       })
     }
     

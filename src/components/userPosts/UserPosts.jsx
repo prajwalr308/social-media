@@ -4,7 +4,7 @@ import {db} from '../../firebase'
 
 const UserPosts = () => {
     useEffect(() => {
-        db.collection("posts").where("username","==","priya.md0002")
+        db.collection("posts").where("username","==","pprraasshhaanntthh05")
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
