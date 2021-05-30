@@ -4,6 +4,7 @@ import cover from './cover.jpg'
 import Navbar from '../navbar/Navbar'
 import "./profile.css"
 import SignoutBtn from '../signout-btn/SignoutBtn'
+import UserPosts from '../userPosts/UserPosts'
 
 
 
@@ -30,6 +31,7 @@ const Profile = ({user}) => {
                 
             </div>
             </div>:null}
+            <UserPosts />
         </div>
     )
 }

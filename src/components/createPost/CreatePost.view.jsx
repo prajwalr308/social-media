@@ -48,8 +48,8 @@ const CreateAPost = (props) => {
   new Promise((resolve) => {
     Resizer.imageFileResizer(
       file,
-      300,
-      300,
+      1280,
+      720,
       "PNG",
       100,
       0,
