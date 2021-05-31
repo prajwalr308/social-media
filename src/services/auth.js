@@ -1,10 +1,18 @@
 import {auth,provider} from '../firebase'
+import firebase from 'firebase'
 
 export const signInWithGoogle =async()=>{
     let user;
     await auth.signInWithPopup(provider).then((res)=>{
         console.log(res.user);
         user=res.user;
+       
+        firebase.firestore().collection('USERS').doc(res.user.uid).set({ 
+                email:user.email,
+               
+            })
+            
+        
     }).catch((error)=>{
         console.log(error.message);
     });
