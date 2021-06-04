@@ -1,23 +1,31 @@
 import React from 'react'
+import { useState } from 'react'
 
 import { useEffect } from 'react'
 
 import {db} from '../../firebase'
 
-const UserPosts = ({userPosts}) => {
 
-    useEffect(() => {
-       console.log(userPosts);
+const UserPosts = ({userPosts}) => {
+    
+     const [post, setpost] = useState([])
+    
+    
+    useEffect(async() => {
+       
+       console.log("userPosts",userPosts);
+     
     }, [])
 
     return (
         <div>
-            <p>put a grid of posts ,all data is in userPosts access them with userPosts.captions like that</p>
-            {userPosts ? userPosts.map((posts)=>{
-                return(<div>{posts.username}</div>)   //instaead put a img tag with src={user.photourl} and write grid css
-            }):null
-
-            }
+           
+           { userPosts!==[]?
+           userPosts.map((posts)=>{
+                console.log("posts",posts.username)
+                return(<ul key={posts.username}><li>{posts.username}</li></ul>)
+            }):""}
+           
         </div>
     )
 }

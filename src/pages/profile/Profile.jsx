@@ -13,27 +13,23 @@ import firebase from 'firebase'
 
 
 const Profile = () => {
-
-
+ 
+    var postArr=[]
   const [user,setUser] = useContext(UserContext).user;
 
-    const [userPosts, setUserPosts] = useState(null)
+    const [userPosts, setUserPosts] = useState([])
+    const [isPresent, setisPresent] = useState(false)
  useEffect(async() => {
      console.log(user)
 
      let currentUser;
-     await firebase.auth().onAuthStateChanged(user=>{
-        if (user) {
-            // store the user on local storage
-            setUser(user)
-            
-        } 
-    })
+      
    
-         if(user!==null){
+         if(user){
+             
              currentUser = user.email.replace("@gmail.com", "");
              console.log(typeof currentUser)
-             const postArr=[]
+             
          db.collection("posts").where("username","==",`${currentUser}`)
          .get()
          .then((querySnapshot) => {
@@ -41,11 +37,13 @@ const Profile = () => {
                  // doc.data() is never undefined for query doc snapshots
                  console.log(doc.id, " => ", doc.data());
                 postArr.push(doc.data());
+                userPosts.push(doc.data())
  
              });
          })
-         setUserPosts(postArr);
-         console.log(userPosts)
+         
+      
+         console.log(postArr)
          }else{
             console.log("null");
          }
@@ -53,6 +51,10 @@ const Profile = () => {
        
    
  }, [user])
+
+ function viewPosts(){
+    setisPresent(true);
+ }
     return (
 
       <div>
@@ -71,7 +73,10 @@ const Profile = () => {
                 
             </div>
             </div>:null}
-            <UserPosts userPosts={userPosts} />
+            <button onClick={viewPosts}>view posts</button>
+           {isPresent? <UserPosts userPosts={userPosts} />
+            :null}
+            
         </div>
     )
 }
