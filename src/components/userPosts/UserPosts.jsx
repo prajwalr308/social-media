@@ -12,7 +12,7 @@ const UserPosts = ({userPosts}) => {
 
     return (
         <div>
-            <p>put a grid of posts all data is in userPosts access them with userPosts.captions like that</p>
+            <p>put a grid of posts ,all data is in userPosts access them with userPosts.captions like that</p>
             {userPosts ? userPosts.map((posts)=>{
                 return(<div>{posts.username}</div>)   //instaead put a img tag with src={user.photourl} and write grid css
             }):null
