@@ -17,10 +17,10 @@ const Profile = () => {
 
   const [user,setUser] = useContext(UserContext).user;
 
-    const [userProp, setUserProp] = useState(null)
+    const [userPosts, setUserPosts] = useState(null)
  useEffect(async() => {
      console.log(user)
-     await setUserProp(user)
+
      let currentUser;
      await firebase.auth().onAuthStateChanged(user=>{
         if (user) {
@@ -33,18 +33,23 @@ const Profile = () => {
          if(user!==null){
              currentUser = user.email.replace("@gmail.com", "");
              console.log(typeof currentUser)
+             const postArr=[]
          db.collection("posts").where("username","==",`${currentUser}`)
          .get()
          .then((querySnapshot) => {
              querySnapshot.forEach((doc) => {
                  // doc.data() is never undefined for query doc snapshots
                  console.log(doc.id, " => ", doc.data());
+                postArr.push(doc.data());
  
              });
          })
+         setUserPosts(postArr);
+         console.log(userPosts)
          }else{
             console.log("null");
          }
+        
        
    
  }, [user])
@@ -66,7 +71,7 @@ const Profile = () => {
                 
             </div>
             </div>:null}
-            <UserPosts user={userProp} />
+            <UserPosts userPosts={userPosts} />
         </div>
     )
 }
