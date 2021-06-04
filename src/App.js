@@ -8,7 +8,7 @@ import {
   Route,
   
 } from "react-router-dom";
-import Profile from './components/profile/Profile';
+
 
 function App() {
   return (

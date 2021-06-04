@@ -3,7 +3,7 @@ import CreatePost from '../../components/createPost'
 import Feed from '../../components/feed/Feed.view'
 import Floatingbtn from '../../components/floatingbtn/Floatingbtn'
 import Navbar from '../../components/navbar'
-import Profile from '../../components/profile/Profile'
+
 import SigninBtn from '../../components/signin-btn'
 import {
   BrowserRouter as Router,
@@ -11,6 +11,7 @@ import {
   Route,
   
 } from "react-router-dom";
+import Profile from '../profile/Profile'
 
 const HomeView = () => {
   return (

@@ -9,6 +9,7 @@ export const signInWithGoogle =async()=>{
        
         firebase.firestore().collection('USERS').doc(res.user.uid).set({ 
                 email:user.email,
+                name:user.displayName
                
             })
             

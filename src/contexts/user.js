@@ -5,7 +5,7 @@ import {
     Route,
     
   } from "react-router-dom";
-import Profile from "../components/profile/Profile";
+import Profile from "../pages/profile/Profile";
 import Signin from "../pages/signin/Signin";
 import Tempsignin from "../pages/tempSignin/Tempsignin";
 
