@@ -6,10 +6,13 @@ export const signInWithGoogle =async()=>{
     await auth.signInWithPopup(provider).then((res)=>{
         console.log(res.user);
         user=res.user;
-       
+        let currentUser = user.email.replace("@gmail.com", "");
+            
         firebase.firestore().collection('USERS').doc(res.user.uid).set({ 
-                email:user.email,
-                name:user.displayName
+            email:user.email,
+                username:currentUser,
+                name:user.displayName,
+                photoUrl:user.photoURL
                
             })
             

@@ -1,4 +1,4 @@
-import React,{useContext, useEffect} from 'react';
+import React,{useContext, useEffect,useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,6 +35,8 @@ export default function Navbar() {
 
   const [user,setUser] = useContext(UserContext).user;
   const [open, setOpen] = React.useState(false);
+  const [currentUser, setcurrentUser] = useState('');
+  
   const anchorRef = React.useRef(null);
 
 
@@ -73,14 +75,17 @@ export default function Navbar() {
 
 
   useEffect(() => {
+   
     firebase.auth().onAuthStateChanged(user=>{
       if (user) {
           // store the user on local storage
           setUser(user)
+          let currentUser = user.email.replace("@gmail.com", "");
+          setcurrentUser(currentUser)
           
       } 
   })
-  }, [])
+  }, [user])
 
   console.log("usex",user)
   const userLocal = JSON.parse(localStorage.getItem('user'));
@@ -109,7 +114,7 @@ export default function Navbar() {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem ><a href="/profile" style={{textDecoration:"none",}}>Profile</a></MenuItem>
+                    <MenuItem ><a href={`/profile/${currentUser}`} style={{textDecoration:"none",}}>Profile</a></MenuItem>
          
                     <MenuItem onClick={()=>{
                       handleClose()

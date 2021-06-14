@@ -23,7 +23,7 @@ export const UserContextProvider = ({children})=>{
           
     
           </Route>
-          <Route path="/profile" exact>
+          <Route path="/profile/:id" exact>
             <Profile user={user} />
           </Route>
           <Route path="/signin" exact>
