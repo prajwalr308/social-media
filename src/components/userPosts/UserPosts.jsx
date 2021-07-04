@@ -23,7 +23,7 @@ const UserPosts = ({userPosts}) => {
            { userPosts!==[]?
            userPosts.map((posts)=>{
                 console.log("posts",posts.username)
-                return(<ul key={posts.username}><li>{posts.username}</li></ul>)
+                return(<div key={posts.username}><img src={posts.photoUrl}/></div>)
             }):""}
            
         </div>
