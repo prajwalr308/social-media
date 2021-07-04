@@ -23,7 +23,7 @@ const UserPosts = ({userPosts}) => {
            { userPosts!==[]?
            userPosts.map((posts)=>{
                 console.log("posts",posts.username)
-                return(<div key={posts.username}><img src={posts.photoUrl}/></div>)
+                return(<div key={posts.username}><img src={posts.photoUrl}/></div>) // create grid for this
             }):""}
            
         </div>
