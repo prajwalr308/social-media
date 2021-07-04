@@ -207,14 +207,17 @@ setisLiked(true);
   return (
     <div className={styles.post}>
    { type==typeCheck? <Card className={styles.root}   >
-    <a href={`/profile/${username}`}>
+   
     <CardHeader
       
       avatar={
+        <a href={`/profile/${username}`} style={{display:"flex"}}>
         <Avatar aria-label="recipe" className={classes.avatar}>
           <img src={userPhoto} />
-         
+        
         </Avatar>
+        <p style={{marginLeft:10}}>{username}</p>
+        </a>
       }
      
       
@@ -225,9 +228,9 @@ setisLiked(true);
           <DeleteIcon />
         </IconButton>
       }
-      title={username}
+     
     />
-    </a>
+   
       
        <Modal
         open={open}
@@ -275,9 +278,13 @@ setisLiked(true);
     </Card>:<Card className={styles.root} >
       <CardHeader 
         avatar={
+          <a href={`/profile/${username}`} style={{display:"flex"}}>
           <Avatar aria-label="recipe" className={classes.avatar}>
             <img src={userPhoto} />
+         
           </Avatar>
+          <p style={{marginLeft:10}}>{username}</p>
+          </a>
         }
         action={
           <IconButton aria-label="settings" onClick={() => {deletePost();handleOpen()}}>
