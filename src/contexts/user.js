@@ -27,8 +27,8 @@ export const UserContextProvider = ({children})=>{
             <Profile user={user} />
           </Route>
           <Route path="/signin" exact>
-            {/* <Signin user={user} /> */}
-            <Tempsignin signIn={{user}} />
+             <Signin user={user} /> 
+            {/*<Tempsignin signIn={{user}} /> */}
           </Route>
           
         </Switch>

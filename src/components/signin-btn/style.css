@@ -1,12 +1,45 @@
 .g{
-  width: 80%;
-  margin-top: 2%;
-
+  width: 50%;
+  margin-left: 80px;
+  margin-bottom: -320px;
 }
 
-
-@media only screen and (min-width:320px) {
+@media screen and (min-width:365px){
   .g{
-      margin-top: 10%;
+    width: 40%;
+    margin-left: 120px;
+    margin-bottom: -320px;
+  }
+
+}
+@media screen and (min-width:420px){
+
+  .g{
+    width: 40%;
+    margin-left: 125px;
+    margin-bottom: -300px;
+  }
+}
+@media screen and (min-width:760px){
+  .g{
+    width: 30%;
+    margin-bottom: -200px;
+    margin-left: 410px;
+  }
+}
+
+@media screen and (min-width:1000px){
+  .g{
+    width: 25%;
+    margin-bottom: 15px;
+    margin-left: 640px;
+  }
+}
+
+@media screen and (min-width:1435px){
+  .g{
+    width: 20%;
+    margin-bottom: 15px;
+    margin-left: 980px;
   }
 }

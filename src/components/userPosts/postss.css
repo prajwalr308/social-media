@@ -1,0 +1,13 @@
+.postview{
+width: 400px;
+height: 300px;
+margin-left: 10px;
+margin-top: 40px;
+grid-column: 3;
+}
+
+.postviewdiv{
+    display: grid;
+    float:left;
+    grid-template-columns: auto auto ;
+}

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 
 import {db} from '../../firebase'
+import  './postss.css'
 
 
 const UserPosts = ({userPosts}) => {
@@ -23,7 +24,7 @@ const UserPosts = ({userPosts}) => {
            { userPosts!==[]?
            userPosts.map((posts)=>{
                 console.log("posts",posts.username)
-                return(<div key={posts.username}><img src={posts.photoUrl}/></div>) // create grid for this
+                return(<div key={posts.username}><div className="postviewdiv"><img src={posts.photoUrl} className="postview"/></div></div>) // create grid for this
             }):""}
            
         </div>

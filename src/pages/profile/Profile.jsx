@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import {UserContext} from '../../contexts/user'
 import cover from './cover.jpg'
-
+import Button from '@material-ui/core/Button';
 import "./profile.css"
 import SignoutBtn from '../../components/signout-btn/SignoutBtn'
 import UserPosts from '../../components/userPosts/UserPosts'
@@ -10,6 +10,7 @@ import { useState } from 'react'
 import {db} from '../../firebase'
 import firebase from 'firebase'
 import { useParams } from "react-router-dom";
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
 
 
@@ -78,15 +79,17 @@ const Profile = () => {
                 <img src={userInfo.photoUrl}  className="profileimg"/>
                 </div>
                 
-            <div className="profiletext">
-                <h5>Name</h5>
-                <h6>{userInfo.name}</h6>
-                <h5>Email</h5>
-                <h6>{userInfo.email}</h6>
+            <div className="profiletext" >
+                    
+                        <h5>Username</h5>
+                        <h6>{userInfo.name}</h6>
+                    
+
                 
             </div>
             </div>:null}
-            <button onClick={viewPosts}>view posts</button>
+            <Button variant="contained" style={{backgroundColor: "#4aa4ff", color:"white"}} >Follow</Button>
+            <Button variant="contained" style={{backgroundColor: "#4aa4ff", color:"white"}} onClick={viewPosts}>Post</Button>
            {isPresent? <UserPosts userPosts={userPosts} />
             :null}
             

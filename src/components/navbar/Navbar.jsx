@@ -16,6 +16,7 @@ import {BrowserRouter as Router,Link} from "react-router-dom";
 import { logout } from '../../services/auth';
 import { useHistory } from "react-router-dom";
 import twit from "../../assets/twitt.png"
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -103,7 +104,7 @@ export default function Navbar() {
       
      
       <div>
-       
+      <NotificationsIcon  style={{fontSize: 30,marginRight:"15px",marginBottom:"4px"}}/>
         <img   ref={anchorRef} className={styles.profileImg} src={user.photoURL}    onClick={handleToggle} />
         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
           {({ TransitionProps, placement }) => (
@@ -126,7 +127,7 @@ export default function Navbar() {
             </Grow>
           )}
         </Popper>
-      </div> </div>):<Button variant="outlined" style={{background:"white",color:"#4aa4ff"}} ><a href="/signin">Signin</a></Button> }
+      </div> </div>):<Button variant="outlined" style={{background:"white",color:"#4aa4ff"}} ><a href="/signin">Sign in</a></Button> }
         </Toolbar>
         
       </AppBar>
