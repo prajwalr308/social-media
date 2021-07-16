@@ -210,7 +210,7 @@ const CreateAPost = (props) => {
         <div style={{ display: "flex", justifyContent: "space-between"}}>
           <div className={styles.createPostImageUpload}>
             <label htmlFor="fileInput">
-              <AddAPhotoIcon style={{ cursor: "pointer" }} />
+              <AddAPhotoIcon   style={{ cursor: "pointer", color:"#4aa4ff" }} />
             </label>
 
             <input

@@ -1,13 +1,44 @@
 .postview{
-width: 400px;
-height: 300px;
-margin-left: 10px;
-margin-top: 40px;
-grid-column: 3;
+width: 135px;
+height: 115px;
+margin-top: 5px;
+border-radius: 2px;
 }
 
+.postdiv{
+    margin-left: 10px;
+}
 .postviewdiv{
     display: grid;
     float:left;
-    grid-template-columns: auto auto ;
+    grid-template-columns: auto auto auto ;
+}
+
+
+@media only screen and (min-width:370px){
+    .postview{
+        width: 160px;
+        height: 125px;
+    }
+}
+@media only screen and (min-width:420px){
+    .postview{
+        width: 185px;
+        height: 140px;
+    }
+}
+@media only screen and (min-width:760px){
+    .postview{
+        width: 235px;
+        height: 200px;
+    }
+}
+@media only screen and (min-width:1435px){
+    .postview{
+        width: 350px;
+        height: 300px;
+    }
+    .postdiv{
+        margin-left: 50px;
+    }
 }

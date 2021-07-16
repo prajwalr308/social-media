@@ -10,7 +10,8 @@ import { useState } from 'react'
 import {db} from '../../firebase'
 import firebase from 'firebase'
 import { useParams } from "react-router-dom";
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import poost from './post.png'
+
 
 
 
@@ -83,13 +84,12 @@ const Profile = () => {
                     
                         <h5>Username</h5>
                         <h6>{userInfo.name}</h6>
+            <img src={poost} className="postbt"  onClick={viewPosts} />
                     
 
                 
             </div>
             </div>:null}
-            <Button variant="contained" style={{backgroundColor: "#4aa4ff", color:"white"}} >Follow</Button>
-            <Button variant="contained" style={{backgroundColor: "#4aa4ff", color:"white"}} onClick={viewPosts}>Post</Button>
            {isPresent? <UserPosts userPosts={userPosts} />
             :null}
             
