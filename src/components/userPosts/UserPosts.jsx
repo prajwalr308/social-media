@@ -18,13 +18,14 @@ const UserPosts = ({userPosts}) => {
      
     }, [])
 
+  
     return (
-        <div>
+        <div className="userPosts"  >
         
            { userPosts!==[]?
            userPosts.map((posts)=>{
                 console.log("posts",posts.username)
-                return(<div key={posts.username}>
+                return(<div  key={posts.username}>
                     
                     <div className="postviewdiv" >
                         <div className="postdiv">
