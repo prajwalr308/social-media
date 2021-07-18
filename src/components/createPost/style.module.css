@@ -41,22 +41,14 @@
     width: 80px;
 }
 
-@media only screen and (min-width:375px) {
-    .createPostBox{
-        
-    }
-}
+
 
 @media only screen and (min-width:425px) {
     .createPostBox{
         width: 88%;
     }
 }
-@media only screen and (min-width:500px) {
-    .createPostBox{
-  
-    }
-}
+
 @media only screen and (min-width:600px) {
     .createPostBox{
         margin-left: 11%;
